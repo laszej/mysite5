@@ -1,0 +1,17 @@
+<svg width="400" height="230" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pochylone litery i znak wiktorii -->
+  <g transform="translate(50, 130) skewX(10)">
+    <!-- Linia horyzontalna zakończona strzałką -->
+    <line x1="10" y1="-80" x2="320" y2="-80" stroke="white" stroke-width="10" />
+    <polygon points="0,-80 10,-75 10,-85" fill="white" />
+    <!-- Litera W -->
+    <text x="30" y="30" font-family="Ubuntu" font-size="120" fill="white">W</text>
+    <!-- Litera d -->
+    <text x="150" y="30" font-family="Ubuntu" font-size="100" fill="white" transform="skewX(-5)">d</text>
+    <!-- Litera Z -->
+    <text x="230" y="30" font-family="Ubuntu" font-size="120" fill="white">Z</text>
+    <!-- Znak "!" -->
+    <text x="320" y="30" font-family="Ubuntu" font-size="100" fill="white" >!</text>
+  </g>
+</svg>
+

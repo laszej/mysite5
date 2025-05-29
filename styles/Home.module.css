@@ -1,0 +1,59 @@
+.container {
+  padding: 0 2rem;
+  display:flex;
+  flex-direction: column;
+}
+
+.homePageTitle {
+  color: green;
+}
+
+.button{
+  background: steelblue;
+  color: white;
+  border: none;
+  font-weight: bold;
+  width:200px;
+  height: 50px;
+  margin-top:10px;
+  margin-bottom:10px;
+  padding:5px;
+  }
+
+  .button:hover{
+    cursor: pointer;
+  }
+
+  .homeMain {
+    display: flex;
+    margin-top: 1rem;
+  }
+
+  .gallery{
+    max-width:50%;
+    margin-left:1rem;
+  }
+
+ 
+  @media only screen and (max-width: 600px) {
+    .homeMain{
+      display:flex;
+      flex-direction: column;
+      align-items:center;
+     
+    }
+
+    .gallery{
+      max-width:95%;
+      margin-bottom:"2rem";
+      margin-left: 0rem;
+    }
+
+  }
+
+
+  
+ 
+  
+
+ 

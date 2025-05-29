@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400&display=swap');
+
+#__next{
+  font-family: 'Ubuntu', sans-serif;
+  background-color: lightblue;
+}
+
+#__next a {
+  text-decoration: none;
+  
+}
+
+html {
+  min-height: 100vh;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+  min-height: 100vh;
+  background-color: lightblue;
+  
+}
+
+main {
+  margin-bottom: 5rem; /* set the margin bottom equal to the height of the footer */
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h3{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+h4{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+ul{
+  list-style: none;
+}
+
+
+
+.nav-item ms-3{
+  display: flex;
+  flex-direction:row;
+}
+
+#socials{
+  display:flex;
+}
+
+#jumbotron{
+  padding-top: 5%;
+  padding-right: 5%;
+  padding-bottom: 10%;
+  padding-left: 10%;
+  margin-top:0;
+  margin-left: 2rem;
+}
+
+.jumboItems{
+margin-left: 0.1rem;
+ margin-top: -0.4rem;
+margin-bottom:1rem;}
+
+
+.galleryPhoto{
+  width: 90vmin;
+  height:70vmin;
+}
+
+.gridGalleryContainer{
+  display: flex;
+}
+
+#gridGalleryJumbo{
+ margin-left: 2rem;
+ margin-right:3rem;
+}
+  
+.gridGallItem{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+  #socials{
+    display:flex;
+    flex-direction: column;
+  }
+  #jumbotron{
+  
+    margin-top: 2rem;
+    max-width: 90%;
+    margin-left: 0;
+    
+  }
+  .galleryPhoto{
+    width: 90vmin;
+    height:70vmin;
+  }
+
+  .gridGalleryContainer{
+    display: flex;
+    flex-direction: column;
+  }
+
+  #gridGalleryJumbo{
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    max-width:90%;
+  }
+
+  .gridGallItem {
+    margin: 0 auto !important;
+    
+    padding: 10px !important; 
+  }
+
+ 
+  
+  
+
+}
+
+.bg-dark-custom {
+  background-color: #212529;
+}
+
+
+
