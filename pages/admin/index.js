@@ -2,10 +2,23 @@
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { connectToDatabase } from '../../utils/mongodb';
+import AdminComments from '../../components/AdminComments';
 
-const AdminComments = dynamic(() => import('../../components/AdminComments'), { ssr: false });
+import { verifyToken } from '../../utils/auth'; // Dodaj tę linię
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  // Dodaj weryfikację tokena
+  const decoded = verifyToken(context.req);
+  
+  if (!decoded) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
+
   const { db } = await connectToDatabase();
   const all = await db.listCollections().toArray();
 

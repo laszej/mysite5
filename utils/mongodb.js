@@ -1,29 +1,35 @@
-import { MongoClient } from 'mongodb';
+// utils/mongodb.js
+import { MongoClient } from "mongodb";
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const uri = process.env.MONGODB_URI;
+const dbName = process.env.MONGODB_DB; // wartość z .env.local
 
-if (!MONGODB_URI) {
-  throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
+if (!uri) {
+  throw new Error("Brakuje zmiennej MONGODB_URI w .env.local");
+}
+if (!dbName) {
+  throw new Error("Brakuje zmiennej MONGODB_DB w .env.local");
 }
 
-let cachedClient = null;
+const options = {};
+let client;
+let clientPromise;
+
+if (process.env.NODE_ENV === "development") {
+  // Aby w trybie deweloperskim nie tworzyć multiple połączeń:
+  if (!global._mongoClientPromise) {
+    client = new MongoClient(uri, options);
+    global._mongoClientPromise = client.connect();
+  }
+  clientPromise = global._mongoClientPromise;
+} else {
+  // W produkcji po prostu twórz nowe połączenie
+  client = new MongoClient(uri, options);
+  clientPromise = client.connect();
+}
 
 export async function connectToDatabase() {
-  if (cachedClient) {
-    return cachedClient;
-  }
-
-  const client = await MongoClient.connect(MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
-
-  const db = client.db();
-
-  cachedClient = {
-    client,
-    db,
-  };
-
-  return cachedClient;
+  const client = await clientPromise;
+  const db = client.db(dbName);
+  return { client, db };
 }
