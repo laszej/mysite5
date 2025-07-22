@@ -3,7 +3,7 @@ import Comments from '../components/Comments'
 
 const comments = () => {
   return (
-    <Comments collection="devSiteGeneral"/>
+    <Comments collection="WdZSiteGeneral"/>
   )
 }
 
